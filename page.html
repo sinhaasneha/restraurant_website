@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delish Bites</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html{
+      scroll-behavior: smooth;
+    }
+    @keyframes zoomInOut {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .animated-bg {
+      animation: zoomInOut 10s ease-in-out infinite;
+    }
+    /* Navbar Styles */
+    .navbar {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a small shadow to make the navbar stand out */
+    }
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .navbar li {
+      display: inline;
+      margin: 0 15px;
+    }
+    .navbar a {
+      color: black;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .navbar a:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about"><strong>About Us</strong></a></li>
+      <li><a href="#menu"><strong>Menu</strong></a></li>
+      <li><a href="#contact"><strong>Contact Us</strong></a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header class="relative h-64 flex items-center justify-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1600&q=80"
+         alt="Food background" class="absolute w-full h-full object-cover animated-bg opacity-70">
+    <h1 class="text-white text-5xl font-bold z-10 drop-shadow-2xl">Delish Bites</h1>
+  </header>
+
+  <!-- About Us -->
+  <section id="about" class="p-8 text-center">
+    <h2 class="text-3xl font-semibold mb-4">About Us</h2>
+    <p class="max-w-2xl mx-auto text-lg">
+      Welcome to Delish Bites! We serve delicious meals prepared with love. From classic comfort food to gourmet dishes, our menu has something for everyone.
+    </p>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" class="p-8 bg-yellow-50">
+    <h2 class="text-3xl font-semibold text-center mb-8">Our Menu</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Dish 1 (Pizza) -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="pizza.jpg.jpg" alt="Pizza" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+          <h3 class="text-xl font-bold mb-2">Cheese Pizza</h3>
+          <button onclick="showModal('A cheesy delight baked to perfection with fresh ingredients.')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Description</button>
+        </div>
+      </div>
+
+      <!-- Dish 2 (Pasta) -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="pasta.jpg.jpg" alt="Pasta" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+          <h3 class="text-xl font-bold mb-2">Creamy Pasta</h3>
+          <button onclick="showModal('Pasta tossed in rich creamy sauce with herbs and parmesan cheese.')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Description</button>
+        </div>
+      </div>
+
+      <!-- Dish 3 (Burger) -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80" alt="Burger" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+          <h3 class="text-xl font-bold mb-2">Juicy Burger</h3>
+          <button onclick="showModal('Grilled beef patty with melted cheese, lettuce, tomato, and secret sauce.')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Description</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-xl shadow-lg max-w-md mx-auto text-center relative">
+      <h3 class="text-2xl font-semibold mb-4">Food Description</h3>
+      <p id="modalText" class="text-gray-700 mb-6"></p>
+      <button onclick="closeModal()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Close</button>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="p-8 bg-yellow-100">
+    <h2 class="text-3xl font-semibold text-center mb-6">Contact Us</h2>
+    <form class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md">
+      <input type="text" placeholder="Name" class="w-full mb-4 px-4 py-2 border rounded" required>
+      <input type="email" placeholder="Email" class="w-full mb-4 px-4 py-2 border rounded" required>
+      <textarea placeholder="Your Message" class="w-full mb-4 px-4 py-2 border rounded" rows="4" required></textarea>
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="text-center p-4 bg-gray-800 text-white">
+    &copy; 2025 Delish Bites. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for Modal -->
+  <script>
+    function showModal(text) {
+      document.getElementById("modalText").innerText = text;
+      document.getElementById("modal").classList.remove("hidden");
+      document.getElementById("modal").classList.add("flex");
+    }
+
+    function closeModal() {
+      document.getElementById("modal").classList.add("hidden");
+      document.getElementById("modal").classList.remove("flex");
+    }
+  </script>
+</body>
+</html>
